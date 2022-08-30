@@ -3,24 +3,20 @@ import { Link } from 'react-router-dom'
 const NavBar = ({ user, handleLogout }) => {
   return (
     <>
-    <header>
+    <header className='navHeader'>
       Must See TV!
       {user ?
-        <nav>
-          <ul>
-            <li><Link to="/myMovies">{user.name}'s Watch List</Link></li>
-            <li><Link to="/profiles">Entire Audience</Link></li>
-            <li><Link to="/add">Add To Watch List</Link></li>
-            <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
-            <li><Link to="/changePassword">Change Password</Link></li>
-          </ul>
+        <nav className='appNav'>
+          <Link to="/myMovies">{user.name}'s Watch List</Link>
+          <Link to="/profiles">Entire Audience</Link>
+          <Link to="/add">Add To Watch List</Link>
+          <Link to="" onClick={handleLogout}>LOG OUT</Link>
+          <Link to="/changePassword">Change Password</Link>
         </nav>
       :
         <nav>
-          <ul>
-            <li><Link to="/login">Log In</Link></li>
-            <li><Link to="/signup">Sign Up</Link></li>
-          </ul>
+          <Link to="/login">Log In</Link>
+          <Link to="/signup">Sign Up</Link>
         </nav>
       }
     </header>
