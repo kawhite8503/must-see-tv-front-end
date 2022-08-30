@@ -14,7 +14,7 @@ const Profiles = () => {
 
   return (
     <>
-      <h1>Hello. This is a list of all the profiles.</h1>
+      <h1>Here is the entire audience!</h1>
       {profiles.length ? 
         <>
           {profiles.map(profile =>
@@ -22,7 +22,7 @@ const Profiles = () => {
           )}
         </>
       :
-        <p>No profiles yet</p>
+        <p>No audience yet</p>
       }
     </>
   )

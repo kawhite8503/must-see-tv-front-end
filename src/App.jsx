@@ -7,10 +7,22 @@ import Login from './pages/Login/Login'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
+import AddMovie from './pages/AddMovie/AddMovie'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
+	const [checked, setChecked] = useState(false)
+	const [formData, setFormData] = useState({
+		name: '',
+		description: '',
+		streaming: '',
+		watched: checked,
+	})
+
+	const handleChange = () => {
+		setChecked(!checked)
+	}
 
   const handleLogout = () => {
     authService.logout()
@@ -22,6 +34,8 @@ const App = () => {
     setUser(authService.getUser())
   }
 
+
+
   return (
     <>
     <div className='App'>
@@ -31,6 +45,10 @@ const App = () => {
           <Route
             path="/signup"
             element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
+          />
+          <Route
+            path="/add"
+            element={<AddMovie formData={formData} checked={checked} handleChange={handleChange}/>}
           />
           <Route
             path="/login"
