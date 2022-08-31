@@ -29,6 +29,7 @@ const AddMovie = (props) => {
 
 	const handleSubmit = evt => {
 		evt.preventDefault()
+		props.handleAddMovie(formData)
 	}
 
   return (
