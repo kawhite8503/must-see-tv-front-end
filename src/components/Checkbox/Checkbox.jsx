@@ -1,12 +1,12 @@
 
 
-const Checkbox = ({checked}) => {
+const Checkbox = (props) => {
 
 
   return (
     <input 
 			type="checkbox" 
-			checked={checked}
+			checked={props.checked}
 			id="checkbox"
       name="checked"
 		/>

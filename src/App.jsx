@@ -12,22 +12,7 @@ import AddMovie from './pages/AddMovie/AddMovie'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
-	const [checked, setChecked] = useState(false)
-	const [formData, setFormData] = useState({
-		name: '',
-		description: '',
-		streaming: '',
-		watched: checked,
-	})
 
-  const handleChange = evt => {
-    setFormData({ ...formData, [evt.target.name]: evt.target.value })
-  }
-
-  const handleChangeChecked = () => {
-		setChecked(!checked)
-    setFormData({ ...formData, watched : !checked })
-	}
 
   const handleLogout = () => {
     authService.logout()
@@ -51,7 +36,7 @@ const App = () => {
           />
           <Route
             path="/add"
-            element={<AddMovie formData={formData} checked={checked} handleChangeChecked={handleChangeChecked} handleChange={handleChange}/>}
+            element={<AddMovie/>}
           />
           <Route
             path="/login"
