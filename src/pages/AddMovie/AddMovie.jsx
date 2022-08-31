@@ -20,6 +20,7 @@ const AddMovie = (props) => {
 						id="name-input"
 						name="name"
 						value={props.formData.name}
+						onChange={props.handleChange}
 						required
 					/>
 				</div>
@@ -33,6 +34,7 @@ const AddMovie = (props) => {
 						id="description-input"
 						name="description"
 						value={props.formData.description}
+						onChange={props.handleChange}
 					/>
 				</div>
 				<div className="form-group mb-4">
@@ -45,11 +47,12 @@ const AddMovie = (props) => {
 						id="streaming-input"
 						name="streaming"
 						value={props.formData.streaming}
+						onChange={props.handleChange}
 					/>
 				</div>
 				<div>
-					<button type="submit" id="checkbtn" htmlFor="checkbox"> 
-						<Checkbox checked={props.checked} formData={props.formData} handleChange={props.handleChange}/>
+					<button id="checkbtn" htmlFor="checkbox" onClick={() => props.handleChangeChecked()}> 
+						<Checkbox checked={props.checked} formData={props.formData}/>
 						Watched
 					</button>
 				</div>

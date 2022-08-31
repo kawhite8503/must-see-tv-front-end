@@ -1,6 +1,6 @@
 
 
-const Checkbox = ({formData, checked, handleChange}) => {
+const Checkbox = ({formData, checked}) => {
 
 
   return (
@@ -8,8 +8,9 @@ const Checkbox = ({formData, checked, handleChange}) => {
 			type="checkbox" 
 			checked={checked}
 			id="checkbox"
-			value={formData.watched} 
-			onChange={handleChange} 
+      name="checked"
+			value={formData.watched? true : false }
+      // onChange={handleChange}
 		/>
   )
 
