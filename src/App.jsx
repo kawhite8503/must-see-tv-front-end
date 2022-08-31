@@ -12,7 +12,7 @@ import AddMovie from './pages/AddMovie/AddMovie'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
-	const [checked, setChecked] = useState(true)
+	const [checked, setChecked] = useState(false)
 	const [formData, setFormData] = useState({
 		name: '',
 		description: '',
@@ -24,7 +24,7 @@ const App = () => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
-  const handleChangeChecked = (evt) => {
+  const handleChangeChecked = () => {
 		setChecked(!checked)
     setFormData({ ...formData, watched : !checked })
 	}

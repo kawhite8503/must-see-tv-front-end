@@ -1,6 +1,6 @@
 
 
-const Checkbox = ({formData, checked}) => {
+const Checkbox = ({checked}) => {
 
 
   return (
@@ -9,8 +9,6 @@ const Checkbox = ({formData, checked}) => {
 			checked={checked}
 			id="checkbox"
       name="checked"
-			value={formData.watched? true : false }
-      // onChange={handleChange}
 		/>
   )
 

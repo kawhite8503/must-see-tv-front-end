@@ -52,7 +52,7 @@ const AddMovie = (props) => {
 				</div>
 				<div>
 					<button id="checkbtn" htmlFor="checkbox" onClick={() => props.handleChangeChecked()}> 
-						<Checkbox checked={props.checked} formData={props.formData}/>
+						<Checkbox checked={props.checked}/>
 						Watched
 					</button>
 				</div>
