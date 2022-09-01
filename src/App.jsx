@@ -26,7 +26,7 @@ const App = () => {
     setUser(authService.getUser())
   }
 
-  const handleAddMovie = newMovieData => {
+  const handleAddMovie = async newMovieData => {
     const newMovie = await movieService.create(newMovieData)
     setMovies([...movies, newMovie])
   }
