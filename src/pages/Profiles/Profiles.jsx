@@ -14,7 +14,7 @@ const Profiles = () => {
 
   return (
     <>
-      <h1>Here is the entire audience!</h1>
+      <h1> Welcome audience!</h1>
       {profiles.length ? 
         <>
           {profiles.map(profile =>

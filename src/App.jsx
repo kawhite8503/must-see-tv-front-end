@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
@@ -8,6 +8,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import AddMovie from './pages/AddMovie/AddMovie'
+import MovieList from './pages/MovieList/MovieList'
 import * as movieService from './services/movieService'
 
 const App = () => {
@@ -15,6 +16,13 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
 
+  useEffect(() => {
+    const fetchAllMovies = async () => {
+      const movieData = await movieService.getall()
+      setMovies(movieData)
+    }
+    fetchAllMovies()
+  }, [])
 
   const handleLogout = () => {
     authService.logout()
@@ -29,6 +37,7 @@ const App = () => {
   const handleAddMovie = async newMovieData => {
     const newMovie = await movieService.create(newMovieData)
     setMovies([...movies, newMovie])
+    navigate('/')
   }
 
   return (
@@ -40,6 +49,10 @@ const App = () => {
           <Route
             path="/signup"
             element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
+          />
+          <Route
+            path="/"
+            element={<MovieList movies={movies}/>}
           />
           <Route
             path="/add"

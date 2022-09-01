@@ -13,6 +13,13 @@ async function create(movie) {
   return res.json()
 }
 
+async function getall() {
+  const res = await fetch(BASE_URL)
+  return res.json()
+}
+
 export {
   create,
+  getall,
+  
 }
