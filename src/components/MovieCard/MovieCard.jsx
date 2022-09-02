@@ -1,7 +1,7 @@
 import styles from './MovieCard.module.css'
 
 
-const MovieCard = ({movie, randMovieImgId}) => {
+const MovieCard = ({movie, randMovieImgId, handleDeleteMovie, user}) => {
 
   return(
     <div className={styles.card}>
@@ -18,7 +18,15 @@ const MovieCard = ({movie, randMovieImgId}) => {
             <p>Streaming From: {movie.streaming}</p>
             <p>{movie.watched? 'Seen' : 'Not seen yet!'}</p>
             <p>Recommended by: {movie.owner?.name}</p>
-          </div>
+        </div>
+      </div>
+      <div className='card-footer'>
+        <button 
+        className='deletebtn'
+        onClick={() => handleDeleteMovie(movie._id)}
+        >
+          Delete
+        </button>
       </div>
     </div>
 )}

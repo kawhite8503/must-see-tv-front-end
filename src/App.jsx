@@ -40,6 +40,11 @@ const App = () => {
     navigate('/')
   }
 
+  const handleDeleteMovie = async id => {
+
+    setMovies(movies.filter(movie => movie._id !== id))
+  }
+
   return (
     <>
     <div className='App'>
@@ -52,7 +57,7 @@ const App = () => {
           />
           <Route
             path="/"
-            element={<MovieList movies={movies}/>}
+            element={<MovieList movies={movies} handleDeleteMovie={handleDeleteMovie} user={user}/>}
           />
           <Route
             path="/add"
@@ -65,6 +70,10 @@ const App = () => {
           <Route
             path="/profiles"
             element={user ? <Profiles /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/myMovies"
+            element={<MovieList movies={movies} handleDeleteMovie={handleDeleteMovie} user={user}/>}
           />
           <Route
             path="/changePassword"

@@ -12,6 +12,8 @@ const MovieList = (props) => {
           movie={movie} 
           key={movie._id}
           randMovieImgId={movieIds[Math.floor(Math.random()*(movieIds.length))]}
+          handleDeleteMovie={props.handleDeleteMovie}
+          user={props.user}
           />
         )}
       </div>

@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react'
 import * as profileService from '../../services/profileService'
+import ProfileCard from '../../components/ProfileCard/ProfileCard'
 
 const Profiles = () => {
+  
+  const profileIds = [1025,1012,1062,1084,169,200,219,237,244,275,40,433,577,582,593,611,659,718,783,790,824,837,881,937,943]
+
   const [profiles, setProfiles] = useState([])
 
   useEffect(() => {
@@ -18,7 +22,10 @@ const Profiles = () => {
       {profiles.length ? 
         <>
           {profiles.map(profile =>
-            <p key={profile._id}>{profile.name}</p>
+            <ProfileCard 
+            randProfileImgId={profileIds[Math.floor(Math.random()*(profileIds.length))]}
+            profile={profile}
+            />
           )}
         </>
       :
