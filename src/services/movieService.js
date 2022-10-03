@@ -14,7 +14,7 @@ async function create(movie) {
 }
 
 async function getAll() {
-  const res = await fetch(BASE_URL)
+  const res = await fetch (BASE_URL)
   return res.json()
 }
 
@@ -28,9 +28,21 @@ async function deleteOne(id) {
   return res.json()
 }
 
+async function update(movie) {
+  const res = await fetch(`${BASE_URL}/${movie._id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+    body: JSON.stringify(movie)
+  })
+  return res.json()
+}
+
 export {
   create,
   getAll,
   deleteOne,
-  
+  update
 }

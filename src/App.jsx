@@ -8,6 +8,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import AddMovie from './pages/AddMovie/AddMovie'
+import EditMovie from './pages/EditMovie/EditMovie'
 import MovieList from './pages/MovieList/MovieList'
 import * as movieService from './services/movieService'
 
@@ -45,6 +46,14 @@ const App = () => {
     setMovies(movies.filter(movie => movie._id !== deletedMovie._id))
   }
 
+  const handleUpdateMovie = async updatedMovieData => {
+    const updatedMovie = await movieService.update(updatedMovieData)
+    const newMoviesArray = movies.map(movie => 
+      movie._id === updatedMovie._id ? updatedMovie : movie)
+      setMovies(newMoviesArray)
+      navigate("/")
+  }
+
   return (
     <>
     <div className='App'>
@@ -62,6 +71,10 @@ const App = () => {
           <Route
             path="/add"
             element={<AddMovie handleAddMovie={handleAddMovie} />}
+          />
+          <Route
+            path="/edit"
+            element={<EditMovie handleUpdateMovie={handleUpdateMovie} />}
           />
           <Route
             path="/login"

@@ -1,4 +1,5 @@
 import styles from './MovieCard.module.css'
+import { Link } from 'react-router-dom';
 
 
 const MovieCard = ({movie, randMovieImgId, handleDeleteMovie, user}) => {
@@ -22,6 +23,12 @@ const MovieCard = ({movie, randMovieImgId, handleDeleteMovie, user}) => {
       </div>
       {user?.profile === movie.owner?._id &&
         <div className='card-footer'>
+          <Link 
+            to="/edit"
+            state={{movie}}
+          >
+            Edit
+          </Link>
           <button 
           className='deletebtn'
           onClick={() => handleDeleteMovie(movie._id)}
