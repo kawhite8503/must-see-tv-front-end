@@ -20,14 +20,16 @@ const MovieCard = ({movie, randMovieImgId, handleDeleteMovie, user}) => {
             <p>Recommended by: {movie.owner?.name}</p>
         </div>
       </div>
-      <div className='card-footer'>
-        <button 
-        className='deletebtn'
-        onClick={() => handleDeleteMovie(movie._id)}
-        >
-          Delete
-        </button>
-      </div>
+      {user?.profile === movie.owner?._id &&
+        <div className='card-footer'>
+          <button 
+          className='deletebtn'
+          onClick={() => handleDeleteMovie(movie._id)}
+          >
+            Delete
+          </button>
+        </div>
+      }
     </div>
 )}
 

@@ -18,7 +18,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchAllMovies = async () => {
-      const movieData = await movieService.getall()
+      const movieData = await movieService.getAll()
       setMovies(movieData)
     }
     fetchAllMovies()
@@ -41,8 +41,8 @@ const App = () => {
   }
 
   const handleDeleteMovie = async id => {
-
-    setMovies(movies.filter(movie => movie._id !== id))
+    const deletedMovie = await movieService.deleteOne(id)
+    setMovies(movies.filter(movie => movie._id !== deletedMovie._id))
   }
 
   return (
