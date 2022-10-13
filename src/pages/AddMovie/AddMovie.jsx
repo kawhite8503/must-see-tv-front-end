@@ -81,6 +81,20 @@ const AddMovie = (props) => {
 						<Checkbox checked={checked}/>
 						Watched
 					</button>
+					<p>(Do not check "Watched" if recommending for someone)</p>
+				</div>
+				<div>
+					<label>
+						Add Guests: 
+					</label>
+					<select name="recFor" onChange={handleChange}>
+					<option value={null}>Recommended for:</option>
+						{filteredProfiles.map(profile => 
+							<option value={profile._id} key={profile._id}>
+								{profile.name}
+							</option>
+						)}
+					</select>
 				</div>
 				<div className="d-grid">
 					<button

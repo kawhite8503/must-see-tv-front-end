@@ -11,8 +11,6 @@ const EditMovie = (props) => {
 	const [checked, setChecked] = useState(location.state.movie.watched)
 	const [formData, setFormData] = useState(location.state.movie)
 
-  console.log(location.state.movie)
-
   const handleChange = evt => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
