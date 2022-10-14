@@ -2,8 +2,13 @@
   border: solid 1px black;
   padding: 15px;
   margin: 15px;
+  background-color: rgb(255, 255, 255, 0.7);
 }
 
-.MovieCard_card__G6MP- {
-  background-color: white;
+.cardImg {
+  width: 400px;
+}
+
+.cardDetails {
+  text-overflow: unset;
 }

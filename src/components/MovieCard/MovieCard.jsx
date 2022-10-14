@@ -2,18 +2,18 @@ import styles from './MovieCard.module.css'
 import { Link } from 'react-router-dom';
 
 
-const MovieCard = ({movie, randMovieImgId, handleDeleteMovie, user}) => {
+const MovieCard = ({movie, handleDeleteMovie, user}) => {
 
   return(
     <div className={styles.card}>
       <img 
-        src={`https://picsum.photos/id/${randMovieImgId}/640/480`} 
+        src={"movie-reel.jpg"} 
         alt="Let's go to the movies!"
-        className="card-img-top" 
+        className={styles.cardImg}
       />
       <div className="card-body">
         <h2 className="card-text">{movie.name}</h2>
-        <div key={movie._id} >
+        <div key={movie._id} className={styles.cardDetails}>
             <p>Movie Title: {movie.name}</p>
             <p>Description: {movie.description}</p>
             <p>Streaming From: {movie.streaming}</p>
